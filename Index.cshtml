@@ -1,0 +1,38 @@
+﻿@model IEnumerable<u17234132_HW3.Models.FileModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="well">Videos</h2>
+<p>
+    ......."Media/Video/" folder
+</p>
+<div class="container">
+    
+    @foreach (var item in Model)
+    {
+        @*<tr>
+            <td>
+                @item.FileName + <video src="~/App_Data/Media/Videos/@item.FileName"></video>
+            </td>
+        </tr>*@
+         <div class="col-md-4">
+           @*  display videos here*@
+            <img src="@item.FileName" style="border:1px;border-radius:2px" /><br /><br />
+           @item.FileName  <video src="~/App_Data/Media/Videos/@item.FileName"></video>
+            <button class="btn btn-primary" style="background-color:lightblue">
+                @Html.ActionLink("Download", "DownloadFile",
+          new { fileName = item.FileName },
+          new { onclick = "return confirm('File donwloaded!');" })
+            </button>
+            <button class="btn btn-danger">
+                @Html.ActionLink("DELETE", "DeleteFile",
+        new { fileName = item.FileName },
+        new { onclick = "return confirm('Are you sure you wish to delete this?');" })
+            </button>
+        </div>
+    }
+
+
+</div>
