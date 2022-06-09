@@ -2,25 +2,20 @@
 
 @{
     ViewBag.Title = "Index";
+   
 }
 
-<h2 class="well">Videos</h2>
-<p>
-    ......."Media/Video/" folder
-</p>
+<h2 class="well">Images</h2>
 <div class="container">
     
     @foreach (var item in Model)
     {
-        @*<tr>
-            <td>
-                @item.FileName + <video src="~/App_Data/Media/Videos/@item.FileName"></video>
-            </td>
-        </tr>*@
-         <div class="col-md-4">
-           @*  display videos here*@
+        
+        @*<div class="">*@
+        <div class="col-md-4">
+
             <img src="@item.FileName" style="border:1px;border-radius:2px" /><br /><br />
-           @item.FileName  <video src="~/App_Data/Media/Videos/@item.FileName"></video>
+            @*<img src="~/App_Data/Media/Images/@item.FileName" class="img-circle" />*@
             <button class="btn btn-primary" style="background-color:lightblue">
                 @Html.ActionLink("Download", "DownloadFile",
           new { fileName = item.FileName },
@@ -32,7 +27,11 @@
         new { onclick = "return confirm('Are you sure you wish to delete this?');" })
             </button>
         </div>
+        @*</div>*@
+
+
     }
-
-
 </div>
+
+
+
